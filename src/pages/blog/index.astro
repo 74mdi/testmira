@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { formatDate } from '../../utils/dates';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Blog — testmira" description="All blog posts">
+  <section class="blog-archive">
+    <h1>Blog</h1>
+    <p class="archive-intro">All posts, newest first.</p>
+    {posts.length > 0 ? (
+      <ul class="post-list">
+        {posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.slug}`} class="post-link">
+              <span class="post-title">{post.data.title}</span>
+              <time datetime={post.data.pubDate}>{formatDate(post.data.pubDate)}</time>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="no-posts">No posts yet.</p>
+    )}
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-archive { padding: 2rem 0; }
+  h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1rem; }
+  .archive-intro { color: var(--text-secondary); margin-bottom: 3rem; font-size: 1.1rem; }
+
+  .post-list { list-style: none; padding: 0; margin: 0; }
+  .post-link { display: flex; justify-content: space-between; align-items: baseline; padding: 1rem 0; border-bottom: 1px solid var(--border); text-decoration: none; transition: all 0.2s; }
+  .post-link:hover { padding-left: 0.5rem; border-bottom-color: var(--accent); }
+  .post-title { color: var(--text); font-weight: 500; font-size: 1.05rem; }
+  .post-link:hover .post-title { color: var(--accent); }
+  time { color: var(--text-secondary); font-size: 0.9rem; white-space: nowrap; margin-left: 1rem; }
+  .no-posts { color: var(--text-secondary); text-align: center; padding: 2rem 0; }
+</style>

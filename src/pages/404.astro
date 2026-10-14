@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 — testmira">
+  <section class="not-found">
+    <h1>404</h1>
+    <p>Page not found.</p>
+    <a href="/" class="back-home">← Go home</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found { text-align: center; padding: 6rem 0; }
+  h1 { font-size: 6rem; font-weight: 700; letter-spacing: -0.05em; margin-bottom: 1rem; color: var(--accent); }
+  p { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem; }
+  .back-home { color: var(--accent); text-decoration: none; font-weight: 500; }
+  .back-home:hover { text-decoration: underline; }
+</style>

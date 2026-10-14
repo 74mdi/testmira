@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About — testmira" description="About this blog">
+  <article class="about-content">
+    <h1>About</h1>
+    <p><strong>testmira</strong> is a minimal dark blog built with <a href="https://astro.build" target="_blank" rel="noopener">Astro</a>.</p>
+    <p>It's designed for clarity and focus — no distractions, just words and ideas.</p>
+    <h2>Features</h2>
+    <ul>
+      <li>Dark theme with warm accent colors</li>
+      <li>Markdown and MDX support</li>
+      <li>HTML embedding in posts</li>
+      <li>Fast static site generation</li>
+      <li>Deployed on Cloudflare Pages</li>
+    </ul>
+    <h2>Write Your First Post</h2>
+    <p>Create a new <code>.md</code> file in <code>src/content/blog/</code> and start writing. Check the README for the full guide.</p>
+  </article>
+</BaseLayout>
+
+<style>
+  .about-content { padding: 2rem 0; }
+  h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 2rem; }
+  h2 { font-size: 1.5rem; font-weight: 600; margin-top: 2.5rem; margin-bottom: 1rem; letter-spacing: -0.02em; }
+  p { margin-bottom: 1.25rem; line-height: 1.8; }
+  ul { margin: 1rem 0 1.5rem 1.5rem; }
+  li { margin: 0.5rem 0; line-height: 1.6; }
+</style>

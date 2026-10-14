@@ -1,0 +1,23 @@
+{
+  "name": "testmira",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "A minimal dark blog built with Astro",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "pages:dev": "wrangler pages dev dist",
+    "pages:deploy": "wrangler pages deploy dist"
+  },
+  "dependencies": {
+    "astro": "^4.16.0",
+    "@astrojs/mdx": "^4.0.0",
+    "@astrojs/cloudflare": "^11.0.0"
+  },
+  "devDependencies": {
+    "wrangler": "^3.80.0"
+  }
+}
